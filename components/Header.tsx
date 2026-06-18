@@ -41,21 +41,21 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex items-center">
-              <span className="text-[#0f2a4a] font-display font-black text-2xl tracking-tighter group-hover:scale-105 transition-transform">
+            <div className="flex items-center text-white">
+              <span className="text-white font-display font-black text-2xl tracking-tighter group-hover:scale-105 transition-transform">
                 MIT
               </span>
-              <div className="h-6 w-px bg-slate-300 mx-2.5" />
+              <div className="h-6 w-px bg-white/40 mx-2.5" />
               <div className="flex flex-col">
-                <span className="text-[#0f2a4a] font-display font-bold text-[10px] uppercase leading-none tracking-wider">
+                <span className="text-white font-display font-bold text-[10px] uppercase leading-none tracking-wider">
                   Academy of
                 </span>
-                <span className="text-[#0f2a4a] font-display font-bold text-[10px] uppercase leading-none tracking-wider mt-0.5">
+                <span className="text-white font-display font-bold text-[10px] uppercase leading-none tracking-wider mt-0.5">
                   Engineering
                 </span>
               </div>
-              <span className="ml-3 px-2 py-0.5 rounded-md bg-[#0f2a4a]/10 text-[#0f2a4a] font-bold text-[8px] uppercase tracking-widest hidden sm:inline-block">
-                Stdent Portal
+              <span className="ml-3 px-2 py-0.5 rounded-md bg-white/10 text-white font-bold text-[8px] uppercase tracking-widest hidden sm:inline-block">
+                Student Portal
               </span>
             </div>
           </Link>
@@ -70,9 +70,9 @@ export default function Header() {
                   href={item.href}
                   className={cn(
                     "relative px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2",
-                    isActive
-                      ? "text-blue-900"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-black/5"
+                        isActive
+                          ? "text-white"
+                          : "text-white/90 hover:text-white/100 hover:bg-black/5"
                   )}
                 >
                   <item.icon className="w-4 h-4 opacity-80" />
