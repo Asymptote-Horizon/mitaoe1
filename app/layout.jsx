@@ -1,11 +1,13 @@
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-poppins',
 })
 
 export const metadata = {
@@ -65,7 +67,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={poppins.variable}>
       <body className="font-sans antialiased">
         {children}
         <Toaster
