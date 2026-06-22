@@ -14,12 +14,12 @@ const [question, setQuestion] = useState('')
   }
 
   return (
-    <section className="py-20 bg-white border-t border-teal-100">
+    <section className="py-20 bg-white border-t border-[#141d49]-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-teal-800 mb-4">
+          <h2 className="text-4xl font-bold text-black-800 mb-4">
             Frequently Asked Questions
           </h2>
 
@@ -33,23 +33,23 @@ const [question, setQuestion] = useState('')
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white border border-teal-200 rounded-2xl shadow-sm overflow-hidden"
+              className="bg-white border border-[#141d49]-200 rounded-2xl shadow-sm overflow-hidden"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center p-5 text-left hover:bg-teal-50 transition"
+                className="w-full flex justify-between items-center p-5 text-left hover:bg-[#141d49]-50 transition"
               >
                 <span className="font-semibold text-gray-800">
                   {faq.question}
                 </span>
 
-                <span className="text-2xl text-teal-700 font-bold">
+                <span className="text-2xl text-[#141d49]-700 font-bold">
                   {openIndex === index ? '−' : '+'}
                 </span>
               </button>
 
               {openIndex === index && (
-                <div className="px-5 pb-5 border-t border-teal-100">
+                <div className="px-5 pb-5 border-t border-[#141d49]-100">
                   <p className="pt-4 text-gray-600">
                     {faq.answer}
                   </p>
@@ -61,8 +61,8 @@ const [question, setQuestion] = useState('')
 
         {/* Ask Question Section */}
         {/* Ask Question Section */}
-<div className="mt-12 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl border border-teal-200 p-8">
-  <h3 className="text-2xl font-bold text-teal-800 mb-3 text-center">
+<div className="mt-12 bg-gradient-to-r from-[#141d49]-50 to-cyan-50 rounded-2xl border border-[#141d49]-200 p-8">
+  <h3 className="text-2xl font-bold text-black-800 mb-3 text-center">
     Didn't find your answer?
   </h3>
 
@@ -89,7 +89,7 @@ const [question, setQuestion] = useState('')
   placeholder="Your Name"
   value={name}
   onChange={(e) => setName(e.target.value)}
-  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#141d49]-500"
   required
 />
 
@@ -98,7 +98,7 @@ const [question, setQuestion] = useState('')
   placeholder="Your Email"
   value={email}
   onChange={(e) => setEmail(e.target.value)}
-  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#141d49]-500"
   required
 />
    <textarea
@@ -106,13 +106,13 @@ const [question, setQuestion] = useState('')
   placeholder="Type your question here..."
   value={question}
   onChange={(e) => setQuestion(e.target.value)}
-  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#141d49]-500"
   required
 />
 
     <button
       type="submit"
-      className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition"
+      className="w-full bg-[#141d49] text-white py-3 rounded-lg hover:bg-white hover:text-[#141d49] transition-colors duration-300 ease-in-out"
     >
       Submit Question
     </button>

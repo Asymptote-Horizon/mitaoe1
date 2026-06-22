@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ExternalLink, Heart } from "lucide-react";
 import contactData from "@/data/contact.json";
 
@@ -48,31 +49,24 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-white border-t border-slate-200 pt-16 pb-8 overflow-hidden">
-      {/* Background soft glow */}
+    <footer className="relative bg-[#141D49] pt-16 pb-8 overflow-hidden text-white">      {/* Background soft glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[150px] bg-purple-500/5 rounded-full blur-[80px] -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-slate-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
           {/* Brand Col */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="flex items-center">
-                <span className="text-[#0f2a4a] font-display font-black text-2xl tracking-tighter">
-                  MIT
-                </span>
-                <div className="h-6 w-px bg-slate-300 mx-2.5" />
-                <div className="flex flex-col">
-                  <span className="text-[#0f2a4a] font-display font-bold text-[10px] uppercase leading-none tracking-wider">
-                    Academy of
-                  </span>
-                  <span className="text-[#0f2a4a] font-display font-bold text-[10px] uppercase leading-none tracking-wider mt-0.5">
-                    Engineering
-                  </span>
-                </div>
-              </div>
-            </Link>
-            <p className="text-sm text-slate-600 mt-2 leading-relaxed font-medium">
+            <Link href="/" className="inline-block">
+  <Image
+    src="/mitaoe-white.svg"
+    alt="MITAOE"
+    width={220}
+    height={70}
+    priority
+    className="w-[220px] h-auto"
+  />
+</Link>
+            <p className="text-sm text-white/80 mt-2 leading-relaxed font-medium">
               Fostering an inclusive, dynamic environment for physical, emotional, technical, and ethical development.
             </p>
             {/* Social handles */}
@@ -84,7 +78,7 @@ export default function Footer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:text-white hover:bg-purple-600 hover:scale-110 transition-all duration-300"
+                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-[#141D49] hover:scale-110 transition-all duration-300"
                     aria-label={`Visit our ${platform}`}
                   >
                     <SocialIcon platform={platform} className="w-4 h-4" />
@@ -96,7 +90,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-slate-900 font-display font-bold text-base mb-6">Quick Links</h3>
+            <h3 className="text-white font-display font-bold text-base mb-6">Quick Links</h3>
             <ul className="flex flex-col gap-3">
               {[
                 { label: "About Clubs Portal", href: "/" },
@@ -109,7 +103,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-600 hover:text-blue-600 font-medium transition-colors flex items-center gap-1 group"
+                    className="text-sm text-white/80 hover:text-blue-600 font-medium transition-colors flex items-center gap-1 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.label}
@@ -121,19 +115,19 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h3 className="text-slate-900 font-display font-bold text-base mb-6">Contact Us</h3>
+            <h3 className="text-white font-display font-bold text-base mb-6">Contact Us</h3>
             <ul className="flex flex-col gap-4">
-              <li className="flex gap-3 text-sm text-slate-600 font-medium leading-relaxed">
-                <MapPin className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+              <li className="flex gap-3 text-sm text-white/80 font-medium leading-relaxed">
+                <MapPin className="w-5 h-5 text-white shrink-0 mt-0.5" />
                 <span>{contactData.address}</span>
               </li>
-              <li className="flex items-center gap-3 text-sm text-slate-600 font-medium">
-                <Phone className="w-4 h-4 text-blue-600 shrink-0" />
+              <li className="flex items-center gap-3 text-sm text-white/80 font-medium">
+                <Phone className="w-4 h-4 text-white shrink-0" />
                 <span>{contactData.phones[0]}</span>
               </li>
-              <li className="flex items-center gap-3 text-sm text-slate-600 font-medium">
-                <Mail className="w-4 h-4 text-blue-600 shrink-0" />
-                <a href={`mailto:${contactData.email}`} className="hover:text-purple-600 transition-colors">
+              <li className="flex items-center gap-3 text-sm text-white/80 font-medium">
+                <Mail className="w-4 h-4 text-white shrink-0" />
+                <a href={`mailto:${contactData.email}`} className="hover:text-white transition-colors">
                   {contactData.email}
                 </a>
               </li>
@@ -142,15 +136,15 @@ export default function Footer() {
 
           {/* External Portals */}
           <div>
-            <h3 className="text-slate-900 font-display font-bold text-base mb-6">College Info</h3>
-            <p className="text-sm text-slate-600 font-medium mb-4 leading-relaxed">
+            <h3 className="text-white font-display font-bold text-base mb-6">College Info</h3>
+            <p className="text-sm text-white/80 font-medium mb-4 leading-relaxed">
               Visit our primary college portal for academic syllabus, admissions, departments, and other campus facilities.
             </p>
             <a
               href={contactData.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500/5 border border-blue-500/20 text-blue-700 text-sm font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-white text-sm font-semibold hover:bg-white hover:text-[#141D49] transition-all duration-300"
             >
               {/* <span>Main Website</span> */}
               <ExternalLink className="w-4 h-4" />
@@ -159,7 +153,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-xs text-slate-500 font-medium gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-xs text-white/70 font-medium gap-4">
           <p>© {currentYear} {contactData.institution}. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Redesigned & Built with <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 animate-pulse" /> for MITAOE Campus

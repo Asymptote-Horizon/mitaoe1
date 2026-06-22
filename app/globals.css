@@ -144,20 +144,27 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: #f3f4f6;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
+  background: #9ca3af; /* gray */
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a5a5d;
+  background: #6b7280;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #9ca3af #f3f4f6;
 }
 
 * {

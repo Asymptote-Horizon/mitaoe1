@@ -6,7 +6,7 @@ export default function WatchDemo() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-teal-800 mb-3">
+          <h2 className="text-3xl font-bold text-black-800 mb-3">
             PLATFORM DEMO VIDEOS
           </h2>
           <p className="text-gray-600">
@@ -17,7 +17,7 @@ export default function WatchDemo() {
         <div className="grid md:grid-cols-2 gap-8">
           {videos.map((video, index) => (
             <div key={index}>
-              <h3 className="text-xl font-semibold text-teal-700 mb-3 text-center">
+              <h3 className="text-xl font-semibold text-black-700 mb-3 text-center">
                 {video.title}
               </h3>
 

@@ -22,6 +22,10 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  // Hide header on sign-in page and treat non-home pages as scrolled by default
+  if (pathname === '/auth/signin') return null;
+  const effectiveScrolled = scrolled || pathname !== '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
@@ -35,13 +39,13 @@ export default function Header() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-          scrolled ? "bg-white py-3 shadow-md" : "bg-transparent py-5"
+          effectiveScrolled ? "bg-white py-3 shadow-md" : "bg-transparent py-5"
         )}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className={cn("flex items-center", scrolled ? "text-[#2596be]" : "text-white")}> 
+            <div className={cn("flex items-center", effectiveScrolled ? "text-[#2596be]" : "text-white")}> 
               {/* inline SVG uses currentColor so it can change on scroll */}
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32" className="h-8 w-auto" aria-hidden>
                 <path fillRule="evenodd" clipRule="evenodd" d="M50.0537 0.00146484H40.7741V30.9986H50.0537V0.00146484ZM76.3006 0.00146484H70.2429H60.9633H54.7626V7.60836H60.9633V30.9986H70.2429V7.60836H76.3006V0.00146484ZM16.5146 16.7067L20.561 0.00147437H33.2055V30.9986H24.5741V9.29289L19.2932 30.9986H12.4062L7.1301 9.29289V30.9986H0V0.00147437H12.4681L16.5146 16.7067Z" fill="currentColor" />
@@ -60,8 +64,8 @@ export default function Header() {
                   href={item.href}
                   className={cn(
                     "relative px-4 py-2 rounded-full text-base font-semibold transition-all duration-300",
-                        scrolled
-                          ? "text-[#2596be]"
+                        effectiveScrolled
+                                                  ? "text-[#2596be]"
                           : isActive
                             ? "text-white"
                             : "text-white/90 hover:text-white/100 hover:bg-black/5"
@@ -160,7 +164,7 @@ export default function Header() {
                       className={cn(
                         "flex items-center gap-4 py-2 transition-colors",
                         isActive
-                          ? "text-[#0f2a4a] font-extrabold"
+                         ? "text-[#2596be] font-extrabold"
                           : "text-slate-600 hover:text-slate-900"
                       )}
                     >
