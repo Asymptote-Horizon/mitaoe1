@@ -1,18 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Filter } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import EventCard from "@/components/EventCard";
-import eventsData from "@/data/events.json";
+import fallbackEventsData from "@/data/events.json";
 import { Event } from "@/lib/types";
 
-const events = eventsData as Event[];
 const FILTERS = ["all", "upcoming", "past"];
 
 export default function EventsPage() {
+  const [events, setEvents] = useState<Event[]>(fallbackEventsData as Event[]);
   const [activeFilter, setActiveFilter] = useState("all");
+
+  useEffect(() => {
+    fetch('/api/data/events')
+      .then(res => res.json())
+      .then(result => {
+        if (result.data && result.data.length > 0) {
+          const mappedData = result.data.map((item: any) => ({
+            ...item,
+            id: item.id || item._id?.toString()
+          }));
+          setEvents(mappedData as Event[]);
+        }
+      })
+      .catch(err => console.error("Failed to fetch events from API, using fallback", err));
+  }, []);
 
   const filteredEvents = events.filter((event) => {
     if (activeFilter === "all") return true;

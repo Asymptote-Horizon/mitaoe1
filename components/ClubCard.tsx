@@ -31,7 +31,7 @@ export default function ClubCard({ club, index }: ClubCardProps) {
   
   // Use state to handle loading real images with fallback support
   const [imgSrc, setImgSrc] = useState(() => {
-    return getClubImage(club.id) || fallbackSVG;
+    return club.image || getClubImage(club.id) || fallbackSVG;
   });
   const [hasError, setHasError] = useState(false);
 

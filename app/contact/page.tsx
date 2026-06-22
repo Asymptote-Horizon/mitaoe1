@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import contactData from "@/data/contact.json";
-import clubsData from "@/data/clubs.json";
+import fallbackContactData from "@/data/contact.json";
+import fallbackClubsData from "@/data/clubs.json";
 import { Club } from "@/lib/types";
-
-const clubs = clubsData as Club[];
 
 // Custom premium SVG brand icons to avoid version conflicts in lucide-react
 function SocialIcon({ platform, className }: { platform: string; className?: string }) {
@@ -51,6 +49,9 @@ function SocialIcon({ platform, className }: { platform: string; className?: str
 }
 
 export default function ContactPage() {
+  const [contactData, setContactData] = useState(fallbackContactData);
+  const [clubs, setClubs] = useState<Club[]>(fallbackClubsData as Club[]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -59,6 +60,30 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
+
+  useEffect(() => {
+    // Fetch Contact Data
+    fetch('/api/data/contact')
+      .then(res => res.json())
+      .then(result => {
+        if (result.data) setContactData(result.data);
+      })
+      .catch(err => console.error("Failed to fetch contact data", err));
+
+    // Fetch Clubs Data for dropdown
+    fetch('/api/data/clubs')
+      .then(res => res.json())
+      .then(result => {
+        if (result.data && result.data.length > 0) {
+          const mappedData = result.data.map((item: any) => ({
+            ...item,
+            id: item.id || item._id?.toString()
+          }));
+          setClubs(mappedData as Club[]);
+        }
+      })
+      .catch(err => console.error("Failed to fetch clubs for contact page", err));
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

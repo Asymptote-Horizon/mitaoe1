@@ -1,19 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, SlidersHorizontal, Grid, X } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import ClubCard from "@/components/ClubCard";
-import clubsData from "@/data/clubs.json";
+import fallbackClubsData from "@/data/clubs.json";
 import { Club } from "@/lib/types";
 
-const clubs = clubsData as Club[];
 const CATEGORIES = ["all", "technical", "cultural", "recreational"];
 
 export default function ClubsPage() {
+  const [clubs, setClubs] = useState<Club[]>(fallbackClubsData as Club[]);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
+
+  useEffect(() => {
+    fetch('/api/data/clubs')
+      .then(res => res.json())
+      .then(result => {
+        if (result.data && result.data.length > 0) {
+          const mappedData = result.data.map((item: any) => ({
+            ...item,
+            id: item.id || item._id?.toString()
+          }));
+          setClubs(mappedData as Club[]);
+        }
+      })
+      .catch(err => console.error("Failed to fetch clubs from API, using fallback", err));
+  }, []);
 
   const filteredClubs = clubs.filter((club) => {
     const matchesSearch =

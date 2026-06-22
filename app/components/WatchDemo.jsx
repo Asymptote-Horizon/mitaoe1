@@ -22,14 +22,17 @@ export default function WatchDemo() {
               </h3>
 
               <div className="rounded-2xl overflow-hidden shadow-lg border border-teal-200 bg-black">
-                <video
-                  controls
-                  className="w-full"
-                  preload="metadata"
-                >
-                  <source src={video.file} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                {/* Embed YouTube iframe; replace VIDEO_ID with your YouTube id */}
+                <div className="w-full h-full">
+                  <iframe
+                    className="w-full h-80 md:h-96"
+                    src="https://www.youtube.com/embed/VIDEO_ID"
+                    title="CodeTantra demo"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </div>
           ))}

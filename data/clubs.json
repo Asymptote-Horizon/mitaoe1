@@ -57,7 +57,7 @@
     "established": "2018",
     "shortDescription": "MITAOE's first aeromodelling club, building and flying model aircraft while learning aerodynamics and engineering design.",
     "description": "MITAOE Aero is MITAOE's first ever Aeromodelling club established in 2018 by Faculty Coordinator Prof. Savita Pawar, SEE and Student Coordinators. The club focuses on designing, building, and flying model aircraft while educating members about aerodynamics, propulsion, and control systems.",
-    "image": "/assets/clubs/aero.jpg",
+    "image": "https://mitaoe.ac.in/img/club_img2.png",
     "facultyAdvisor": {
       "name": "Prof. Savita Pawar",
       "email": "",
@@ -97,7 +97,7 @@
     "established": "2015",
     "shortDescription": "Designs, manufactures and tests ATVs to participate in various national level competitions, embodying engineering excellence.",
     "description": "Team Niyudrath Racing, a club under the Autosports club, aims at designing, manufacturing and testing an ATV to participate in various national level competitions. The club provides students hands-on experience in automotive engineering, from concept design to manufacturing.",
-    "image": "/assets/clubs/autosports.jpg",
+    "image": "https://mitaoe.ac.in/img/club_img3.png",
     "facultyAdvisor": {
       "name": "",
       "email": "",
