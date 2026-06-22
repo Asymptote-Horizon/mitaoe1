@@ -3,10 +3,11 @@ import clientPromise from '@/lib/mongodb';
 import fs from 'fs';
 import path from 'path';
 
-export async function GET(request: Request, { params }: { params: { collection: string } }) {
-  // Await the params before using its properties in Next.js 15+
-  const resolvedParams = await params;
-  const collectionName = resolvedParams.collection;
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ collection: string }> }
+) {
+  const { collection: collectionName } = await params;
 
   try {
     if (!process.env.MONGODB_URI) throw new Error("No MONGODB_URI provided");
