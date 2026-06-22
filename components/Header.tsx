@@ -22,8 +22,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Hide header on sign-in page and treat non-home pages as scrolled by default
-  if (pathname === '/auth/signin') return null;
+  // treat non-home pages as scrolled by default
   const effectiveScrolled = scrolled || pathname !== '/';
 
   useEffect(() => {
@@ -33,6 +32,9 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Hide header on sign-in page (return after hooks to obey rules-of-hooks)
+  if (pathname === '/auth/signin') return null;
 
   return (
     <>
