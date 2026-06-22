@@ -1,4 +1,4 @@
-import videos from '../../data/videos.json'
+﻿import videos from '../../data/videos.json'
 
 export default function WatchDemo() {
   return (
@@ -15,27 +15,35 @@ export default function WatchDemo() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {videos.map((video, index) => (
-            <div key={index}>
-              <h3 className="text-xl font-semibold text-black-700 mb-3 text-center">
-                {video.title}
-              </h3>
-
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-teal-200 bg-black">
-                {/* Embed YouTube iframe; replace VIDEO_ID with your YouTube id */}
-                <div className="w-full h-full">
-                  <iframe
-                    className="w-full h-80 md:h-96"
-                    src="https://www.youtube.com/embed/VIDEO_ID"
-                    title="CodeTantra demo"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+          <div>
+            <h3 className="text-xl font-semibold text-black-700 mb-3 text-center">CodeTantra</h3>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-teal-200 bg-black">
+              <div className="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/HFSf0dUT6xc"
+                  title="CodeTantra demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
-          ))}
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-black-700 mb-3 text-center">Moodle</h3>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-teal-200 bg-black">
+              <div className="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/OHEzpSyiFhw"
+                  title="Moodle demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
