@@ -7,7 +7,7 @@ export default function WatchDemo() {
 
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-black-800 mb-3">
-            PLATFORM DEMO VIDEOS
+            Platform Demos
           </h2>
           <p className="text-gray-600">
             Learn how to use Moodle and CodeTantra effectively.
