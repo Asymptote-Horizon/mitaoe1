@@ -59,7 +59,7 @@ export default function ExploreSection() {
         {/* Premium Unobstructed Video Container Box */}
         {/* Changed aspect ratio to 4:3 on mobile so the video has vertical breathing room */}
         <Link
-          href="https://xyz-wheat-sigma.vercel.app/"
+          href="https://mitaoe3d-azure.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="group block relative w-full aspect-[4/3] sm:aspect-video rounded-2xl overflow-hidden bg-slate-950 border border-teal-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
